@@ -1,0 +1,52 @@
+
+##Code Review 
+####Structure
+I think the main problem with this code is the dependency train. If you had a weird format that had to be process in a 
+special why you would run in to problems. I would image that there are a lot of audio and video formats.
+
+Maybe a better approach would be duck-typing. Where you would have a processing class instance that you would pass in to 
+each formatting class. This class would handle all the heavy lifting. This way you could make changes either the formatting 
+class or the processing class without breaking everything as long as the interface was the same. you could even have
+multiple processing classes. If you wanted to give discounts for example.
+####Example
+```
+processing = Processing.new 
+AudioFormating.new(processing).print_order
+```
+
+####Questions
+* Does this actually solve the stated problem?  
+    Maybe but is seem unlike. I do want to keep reading this code to find out
+* Does it model the problem and solution well?
+
+    I think the algorithm is wrong. There would be a math solution so you would not have to loop over anything
+    something like this
+```
+    {
+        5 => 480,
+        10 => 800
+    }
+    image = 97
+    9 ten bundles  = image / 10
+    1 ten bundle =   image % 10 > 5 ? 10 : 5 
+    10 bundles
+    answer $8000   
+```
+* Is it readable? 
+
+    No. This code seam needless complex
+* Does it have good test coverage?
+
+    No. I thing you would be endlessly chasing edge cases with this code
+    
+* Does it follow all ruby code guidelines, formatting and practices?
+
+    No there are magic integers that should be constants
+    Dependency problems
+    The variable could have more descriptive names
+    Commenting; I like to use https://yardoc.org/ formatting in the comment so you get nice tooltip in you IDE.
+    Some code styling problems that could be automatically handles with rubocop
+    there are method that should be made private in Format class
+* Is it production ready code?
+
+    No
