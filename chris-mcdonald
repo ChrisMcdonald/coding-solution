@@ -8,37 +8,26 @@ Maybe a better approach would be duck-typing. Where you would have a processing 
 each formatting class. This class would handle all the heavy lifting. This way you could make changes either the formatting 
 class or the processing class without breaking everything as long as the interface was the same. you could even have
 multiple processing classes. If you wanted to give discounts for example.
-####Example
+
 ```
 processing = Processing.new 
 AudioFormating.new(processing).print_order
 ```
-
-####Questions
-* Does this actually solve the stated problem?  
-    Maybe but is seem unlike. I do want to keep reading this code to find out
-* Does it model the problem and solution well?
-
-    I think the algorithm is wrong. There would be a math solution so you would not have to loop over anything
-    something like this
-```
-    {
-        5 => 480,
-        10 => 800
-    }
-    image = 97
-    9 ten bundles  = image / 10
-    1 ten bundle =   image % 10 > 5 ? 10 : 5 
-    10 bundles
-    answer $8000   
-```
-
+###Inheritance 
+It's difficult to know where this code would fit in to a larger program. But I don't think that you would 
+has separate classes for each bundle type. I would imagine these would change a lot or more would be added making change dificult
 ###Business Rules
-The bundles look like that would be volitile is a production application. So I would expect that they would be stored in a database.
+The bundles look like that would be volatile is a production application. So I would expect that they would be stored in a database.
 But for this code challenge I would store this information in constants for simplicity
 
 ###Batching
 I don't know how many bundles will be processed at a time but you should consider using batching or a limit of some kind
+
+####Questions
+* Does this actually solve the stated problem?  
+  The this program should take in some parameters for multiple different formats and out put the whole order
+  I don't see where that happens.
+
 * Is it readable? 
 
     No. This code seam needless complex
