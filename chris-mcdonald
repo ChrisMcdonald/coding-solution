@@ -32,6 +32,13 @@ AudioFormating.new(processing).print_order
     10 bundles
     answer $8000   
 ```
+
+###Business Rules
+The bundles look like that would be volitile is a production application. So I would expect that they would be stored in a database.
+But for this code challenge I would store this information in constants for simplicity
+
+###Batching
+I don't know how many bundles will be processed at a time but you should consider using batching or a limit of some kind
 * Is it readable? 
 
     No. This code seam needless complex
